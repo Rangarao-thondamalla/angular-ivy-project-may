@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
-  onSubmit(login){
-    console.log("button submitted",login );
+  PreviewData(data){
+    let finalData= JSON.stringify(data.value);
+    console.log(finalData)
   }
 }
