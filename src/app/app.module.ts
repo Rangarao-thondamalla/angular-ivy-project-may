@@ -10,7 +10,6 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { InputOverviewExampleComponent } from './input-overview-example/input-overview-example.component';
 
 @NgModule({
   imports:      [ 
@@ -23,8 +22,8 @@ import { InputOverviewExampleComponent } from './input-overview-example/input-ov
     HttpClientModule,
      ],
 
-  entryComponents: [InputOverviewExampleComponent],
-  declarations: [ AppComponent, HelloComponent, InputOverviewExampleComponent ],
+  entryComponents: [],
+  declarations: [ AppComponent, HelloComponent,  ],
   bootstrap:    [ AppComponent ],
    providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
