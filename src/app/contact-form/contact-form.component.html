@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Registartion form</h2>
+    <form #login="ngForm" (ngSubmit)="onSubmit(login)" name="Register-form">
+      <div class="form-group">
+        <label for="First Name"> First Name</label>
+        <input #firstName="ngModel" required minlength="3" maxlength="12" type="text" name ="firstName" class="form-control"  ngModel>
+        <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+          <p *ngIf="firstName.errors.required" > First Name is Required</p>
+          <p *ngIf="firstName.errors.minlength" > Minimum Length is 3 Charectors</p>
+        </div>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="Last Name"> Last Name</label>
+        <input  #lastName="ngModel" required minlength="3" maxlength="12" type="text" name ="lastName" class="form-control" ngModel>
+         <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+          <p *ngIf="lastName.errors.required" > Last Name is Required</p>
+          <p *ngIf="lastName.errors.minlength" > Minimum Length is 3 Charectors</p>
+        </div>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="Email"> Email</label>
+        <input #email="ngModel" required type="email" name ="email" class="form-control" ngModel>
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          <p *ngIf="email.errors.required" > Email is Required</p>
+        </div>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="Password"> Password</label>
+        <input #password="ngModel" required type="password" name ="password" class="form-control" placeholder="" ngModel>
+         <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+          <p *ngIf="password.errors.required" > Password is Required</p>
+        </div>
+      </div>
+      <pre></pre>
+      <button class="btn btn-primary" type="submit" name="submit"> Submit </button>
+    </form>
+</div>
