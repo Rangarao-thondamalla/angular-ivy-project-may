@@ -1,6 +1,10 @@
 <div class="container">
-  <h2>Registartion form</h2>
-    <form #register="ngForm" (ngSubmit)="PreviewData(register)">
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="registration">
+     <h2 class="register-head">Registartion form</h2>
+    <form #register="ngForm" (ngSubmit)="PreviewData(register)"> 
       <div class="form-group">
         <label for="First Name"> First Name</label>
         <input #firstName="ngModel" required minlength="3" maxlength="12" type="text" name ="firstName"  pattern="[a-zA-Z ]*" class="form-control"  ngModel>
@@ -50,5 +54,12 @@
       </div>
       <pre></pre>
       <button class="btn btn-primary" type="submit" name="submit" [disabled]="!register.form.valid"> Submit </button>
-    </form>
+    </form> 
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+
+  
 </div>

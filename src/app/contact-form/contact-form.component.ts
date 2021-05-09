@@ -13,9 +13,7 @@ constructor(private _contactformService: ContactformService){}
   PreviewData(data){
 
     let finalData = JSON.stringify(data.value);
-
-    console.log(finalData);
-
+  
       this._contactformService.register(finalData)
       .subscribe(
         response => console.log('Sucess !' , response),

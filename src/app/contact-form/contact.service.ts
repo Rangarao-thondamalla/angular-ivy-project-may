@@ -6,12 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ContactformService {
-  _url = 'https://httpbin.org/anything';
-
+  _url = 'https://reqres.in/api/users';
   constructor( private _http:HttpClient){ }
-
   register(userData){
     return this._http.post<any>(this._url,userData );
   }
-
 }
