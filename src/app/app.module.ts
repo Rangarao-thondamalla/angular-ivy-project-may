@@ -11,6 +11,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactformService } from './contact-form/contact.service';
 
 @NgModule({
   imports:      [ 
@@ -26,8 +27,6 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   entryComponents: [],
   declarations: [ AppComponent, HelloComponent, ContactFormComponent,  ],
   bootstrap:    [ AppComponent ],
-   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-  ]
+   providers: [ ContactformService ]
 })
 export class AppModule { }

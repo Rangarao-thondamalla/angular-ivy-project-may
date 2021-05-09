@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactformService } from './contact.service';
 
 
 @Component({
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent {
+constructor(private _contactformService: ContactformService){}
+
   PreviewData(data){
-    let finalData= JSON.stringify(data.value);
-    console.log(finalData)
+
+    let finalData = JSON.stringify(data.value);
+
+    console.log(finalData);
+
+      this._contactformService.register(finalData)
+      .subscribe(
+        response => console.log('Sucess !' , response),
+        error => console.log('Error!' , error)
+      );
   }
 }
