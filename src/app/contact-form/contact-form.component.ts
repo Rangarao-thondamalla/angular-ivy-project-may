@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactformService } from './contact.service';
+import { User } from './user';
 
 
 @Component({
@@ -10,14 +11,13 @@ import { ContactformService } from './contact.service';
 export class ContactFormComponent {
 constructor(private _contactformService: ContactformService){}
 
-  PreviewData(data){
+userModel = new User ('Ranga Rao', 'Thondamalla', 9676001985, 'trr@gmail.com', 'Ranga@123');
 
-    let finalData = JSON.stringify(data.value);
-  
-      this._contactformService.register(finalData)
+onSubmit(){
+      this._contactformService.register(this.userModel)
       .subscribe(
         response => console.log('Sucess !' , response),
         error => console.log('Error!' , error)
       );
-  }
+    }
 }

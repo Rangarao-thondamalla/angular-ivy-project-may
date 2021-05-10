@@ -4,10 +4,10 @@
   <div class="col-md-8">
     <div class="registration">
      <h2 class="register-head">Registartion form</h2>
-    <form #register="ngForm" (ngSubmit)="PreviewData(register)"> 
+    <form #registerFrom="ngForm" (ngSubmit)="onSubmit()" novalidate> 
       <div class="form-group">
         <label for="First Name"> First Name</label>
-        <input #firstName="ngModel" required minlength="3" maxlength="12" type="text" name ="firstName"  pattern="[a-zA-Z ]*" class="form-control"  ngModel>
+        <input #firstName ='ngModel' [(ngModel)]='userModel.firstName' required minlength="3" maxlength="12" type="text" name ="firstName"  pattern="[a-zA-Z ]*" class="form-control"  >
         <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
           <p *ngIf="firstName.errors.required" > First Name is Required</p>
           <p *ngIf="firstName.errors.minlength" > Minimum Length is 3 Charectors</p>
@@ -17,7 +17,7 @@
       <pre></pre>
       <div class="form-group">
         <label for="Last Name"> Last Name</label>
-        <input  #lastName="ngModel" required minlength="3" maxlength="12" type="text" name ="lastName"  pattern="[a-zA-Z ]*" class="form-control" ngModel>
+        <input  #lastName ='ngModel' [(ngModel)]='userModel.lastName' required minlength="3" maxlength="12" type="text" name ="lastName"  pattern="[a-zA-Z ]*" class="form-control" >
          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
           <p *ngIf="lastName.errors.required" > Last Name is Required</p>
           <p *ngIf="lastName.errors.minlength" > Minimum Length is 3 Charectors</p>
@@ -26,8 +26,8 @@
       </div>
       <pre></pre>
         <div class="form-group">
-        <label for="Phone Number"> Mobile Number</label>
-        <input #phone="ngModel" required  minlength = '3' maxlength="10" pattern="^[0-9()\-+\s]+$" type="phone" name ="phone" class="form-control" ngModel>
+        <label  for="Phone Number"> Mobile Number</label>
+        <input  #phone ='ngModel' [(ngModel)]='userModel.phone' required  minlength = '3' maxlength="10" pattern="^[0-9()\-+\s]+$" type="phone" name ="phone" class="form-control" >
         <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
           <p *ngIf="phone.errors.required" > Phone Number is Required</p>
           <p *ngIf="phone.errors.pattern">Only Numbers are allowed</p>
@@ -37,7 +37,7 @@
       <pre></pre>
       <div class="form-group">
         <label for="Email"> Email</label>
-        <input #email="ngModel" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"type="email" name ="email" class="form-control" ngModel>
+        <input #email ='ngModel' [(ngModel)]='userModel.email' required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"type="email" name ="email" class="form-control" >
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
           <p *ngIf="email.errors.required" > Email is Required</p>
           <p *ngIf="email.errors.pattern" > Not a valid email</p>
@@ -46,20 +46,17 @@
       <pre></pre>
       <div class="form-group">
         <label for="Password"> Password</label>
-        <input #password="ngModel" required type="password" name ="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" placeholder="" ngModel>
+        <input #password = "ngModel" [(ngModel)]='userModel.password' required type="password" name ="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" placeholder="" >
          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
           <p *ngIf="password.errors.required" > Password is Required</p>
           <p *ngIf="password.errors.pattern" > Password should contain a lowercase, uppercase,number and 8 characters</p>
         </div>
       </div>
       <pre></pre>
-      <button class="btn btn-primary" type="submit" name="submit" [disabled]="!register.form.valid"> Submit </button>
+      <button class="btn btn-primary" type="submit" name="submit" [disabled]="!registerFrom.form.valid"> Submit </button>
     </form> 
     </div>
   </div>
   <div class="col-md-2"></div>
 </div>
-
-
-  
 </div>
