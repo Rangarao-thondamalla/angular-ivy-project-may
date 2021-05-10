@@ -5,5 +5,8 @@ export class User{
       public phone : number,
       public email : string,
       public password : string,
+      public gender : string,
+      public state : string,
+      public subscribe : boolean,
   ){ }
 }
