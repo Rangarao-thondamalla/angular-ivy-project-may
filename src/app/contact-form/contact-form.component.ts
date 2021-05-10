@@ -11,7 +11,7 @@ import { User } from './user';
 export class ContactFormComponent {
 constructor(private _contactformService: ContactformService){}
 
-userModel = new User ('Ranga Rao', 'Thondamalla', 9676001985, 'trr@gmail.com', 'Ranga@123');
+userModel = new User ('Ranga Rao', 'Thondamalla', 9676001985, 'trr@gmail.com', 'Ranga@123'); 
 
 onSubmit(){
       this._contactformService.register(this.userModel)

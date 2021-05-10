@@ -9,9 +9,9 @@
         <label for="First Name"> First Name</label>
         <input #firstName ='ngModel' [(ngModel)]='userModel.firstName' required minlength="3" maxlength="12" type="text" name ="firstName"  pattern="[a-zA-Z ]*" class="form-control"  >
         <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
-          <p *ngIf="firstName.errors.required" > First Name is Required</p>
-          <p *ngIf="firstName.errors.minlength" > Minimum Length is 3 Charectors</p>
-          <p *ngIf="firstName.errors.pattern" > Not a valid name</p>
+          <small *ngIf="firstName.errors.required" > First Name is Required</small>
+          <small *ngIf="firstName.errors.minlength" > Minimum Length is 3 Charectors</small>
+          <small *ngIf="firstName.errors.pattern" > Not a valid name</small>
         </div>
       </div>
       <pre></pre>
@@ -19,9 +19,9 @@
         <label for="Last Name"> Last Name</label>
         <input  #lastName ='ngModel' [(ngModel)]='userModel.lastName' required minlength="3" maxlength="12" type="text" name ="lastName"  pattern="[a-zA-Z ]*" class="form-control" >
          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
-          <p *ngIf="lastName.errors.required" > Last Name is Required</p>
-          <p *ngIf="lastName.errors.minlength" > Minimum Length is 3 Charectors</p>
-          <p *ngIf="lastName.errors.pattern" > Not a valid name</p>
+          <small *ngIf="lastName.errors.required" > Last Name is Required</small>
+          <small *ngIf="lastName.errors.minlength" > Minimum Length is 3 Charectors</small>
+          <small *ngIf="lastName.errors.pattern" > Not a valid name</small>
         </div>
       </div>
       <pre></pre>
@@ -29,9 +29,9 @@
         <label  for="Phone Number"> Mobile Number</label>
         <input  #phone ='ngModel' [(ngModel)]='userModel.phone' required  minlength = '3' maxlength="10" pattern="^[0-9()\-+\s]+$" type="phone" name ="phone" class="form-control" >
         <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
-          <p *ngIf="phone.errors.required" > Phone Number is Required</p>
-          <p *ngIf="phone.errors.pattern">Only Numbers are allowed</p>
-          <p *ngIf="phone.errors.minlength" > Minimum Length is 3 Charectors</p>
+          <small *ngIf="phone.errors.required" > Phone Number is Required</small>
+          <small *ngIf="phone.errors.pattern">Only Numbers are allowed</small>
+          <small *ngIf="phone.errors.minlength" > Minimum Length is 3 Charectors</small>
         </div>
       </div>
       <pre></pre>
@@ -39,8 +39,8 @@
         <label for="Email"> Email</label>
         <input #email ='ngModel' [(ngModel)]='userModel.email' required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"type="email" name ="email" class="form-control" >
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-          <p *ngIf="email.errors.required" > Email is Required</p>
-          <p *ngIf="email.errors.pattern" > Not a valid email</p>
+          <small *ngIf="email.errors.required" > Email is Required</small>
+          <small *ngIf="email.errors.pattern" > Not a valid email</small>
         </div>
       </div>
       <pre></pre>
@@ -48,12 +48,13 @@
         <label for="Password"> Password</label>
         <input #password = "ngModel" [(ngModel)]='userModel.password' required type="password" name ="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" placeholder="" >
          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-          <p *ngIf="password.errors.required" > Password is Required</p>
-          <p *ngIf="password.errors.pattern" > Password should contain a lowercase, uppercase,number and 8 characters</p>
+          <small *ngIf="password.errors.required" > Password is Required</small>
+          <small *ngIf="password.errors.pattern" > Password should contain a lowercase, uppercase,number and 8 characters</small>
         </div>
       </div>
       <pre></pre>
-      <button class="btn btn-primary" type="submit" name="submit" [disabled]="!registerFrom.form.valid"> Submit </button>
+      <button class="btn btn-primary" type="submit" name="submit" [disabled]="!registerFrom.form.valid"> Submit </button> (==)
+      <button class="btn btn-danger" type="button" name="reset" (click)="registerFrom.reset({})"> Reset </button>
     </form> 
     </div>
   </div>
